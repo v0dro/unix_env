@@ -3,12 +3,12 @@
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
+(package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
-(setq package-list '(better-defaults markdown-mode smartparens enh-ruby-mode inf-ruby helm projectile helm-projectile auto-complete markdown-toc helm-ag))
+(setq package-list '(better-defaults markdown-mode smartparens enh-ruby-mode inf-ruby helm projectile helm-projectile auto-complete markdown-toc helm-ag magit))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
