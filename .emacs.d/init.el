@@ -5,7 +5,7 @@
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(package-refresh-contents)
+;; (package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults markdown-mode smartparens enh-ruby-mode inf-ruby helm projectile helm-projectile auto-complete markdown-toc helm-ag magit))
@@ -64,11 +64,8 @@
 ;; global auto-revert-mode
 (global-auto-revert-mode 1)
 
-;; enable auto-complete mode in all buffers except minibuffer
-(defun auto-complete-mode-maybe ()
-  "No maybe for you. Only AC!"
-  (unless (minibufferp (current-buffer))
-    (auto-complete-mode 1)))
+;; company mode for auto complete
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; In Ruby mode, patch the # key to make {} when inside a string
 (defun senny-ruby-interpolate ()
@@ -87,5 +84,15 @@
 
 (put 'erase-buffer 'disabled nil)
 
-;; which function mode
-(which-function-mode 1)
+;; which function mode in top header line
+(which-function-mode)
+
+(setq mode-line-format (delete (assoc 'which-func-mode
+                                      mode-line-format) mode-line-format)
+      which-func-header-line-format '(which-func-mode ("" which-func-format)))
+(defadvice which-func-ff-hook (after header-line activate)
+  (when which-func-mode
+    (setq mode-line-format (delete (assoc 'which-func-mode
+                                          mode-line-format) mode-line-format)
+          header-line-format which-func-header-line-format)))
+
