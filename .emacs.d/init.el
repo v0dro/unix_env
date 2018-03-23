@@ -8,7 +8,19 @@
 ;; (package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
-(setq package-list '(better-defaults markdown-mode smartparens enh-ruby-mode inf-ruby helm projectile helm-projectile auto-complete markdown-toc helm-ag magit))
+(setq package-list '(better-defaults
+                     markdown-mode
+                     smartparens
+                     enh-ruby-mode
+                     inf-ruby
+                     helm
+                     projectile
+                     helm-projectile
+                     company
+                     markdown-toc
+                     magit
+                     use-package
+                     yasnippet))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
@@ -28,10 +40,13 @@
 ;; inhibit start screen
 (setq inhibit-startup-screen t)
 
-;; require packages
-(require 'better-defaults)
-(require 'markdown-mode)
-(require 'smartparens-config)
+;; require use-package
+(eval-when-compile
+  (require 'use-package))
+
+(use-package better-defaults)
+(use-package markdown-mode)
+(use-package smartparens-config)
 
 (require 'helm-config)
 (helm-mode 1)
@@ -95,4 +110,11 @@
     (setq mode-line-format (delete (assoc 'which-func-mode
                                           mode-line-format) mode-line-format)
           header-line-format which-func-header-line-format)))
+
+;; yasnippet configs
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  (yas-reload-all))
 
