@@ -118,3 +118,7 @@
   (yas-global-mode 1)
   (yas-reload-all))
 
+;; use column-marker
+(load "~/.emacs.d/custom/column-marker")
+(add-hook 'fundamental-mode-hook (lambda () (interactive) (column-marker-3 80)))
+ 
