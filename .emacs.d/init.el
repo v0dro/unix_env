@@ -132,3 +132,5 @@
                         (agenda . 5)
                         (registers . 5)))
 
+;; load copy-line function
+(load "~/.emacs.d/custom/copy-line")
