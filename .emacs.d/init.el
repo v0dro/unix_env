@@ -20,7 +20,9 @@
                      markdown-toc
                      magit
                      use-package
-                     yasnippet))
+                     yasnippet
+                     page-break-lines
+                     dashboard))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
@@ -36,9 +38,6 @@
 (add-to-list
  'custom-theme-load-path "~/.emacs.d/themes/dracula" )
 (load-theme 'dracula t)
-
-;; inhibit start screen
-(setq inhibit-startup-screen t)
 
 ;; require use-package
 (eval-when-compile
@@ -122,3 +121,14 @@
 (load "~/.emacs.d/custom/column-marker")
 (add-hook 'fundamental-mode-hook (lambda () (interactive) (column-marker-3 80)))
  
+;; emacs dashboard setup
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+
