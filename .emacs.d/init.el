@@ -22,7 +22,8 @@
                      use-package
                      yasnippet
                      page-break-lines
-                     dashboard))
+                     dashboard
+                     yard-mode))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
@@ -119,7 +120,8 @@
 
 ;; use column-marker
 (load "~/.emacs.d/custom/column-marker")
-(add-hook 'fundamental-mode-hook (lambda () (interactive) (column-marker-3 80)))
+(require 'column-marker)
+(add-hook 'after-init-hook (lambda () (interactive) (column-marker-1 80)))
  
 ;; emacs dashboard setup
 (use-package dashboard
@@ -134,3 +136,9 @@
 
 ;; load copy-line function
 (load "~/.emacs.d/custom/copy-line")
+
+;; YARD mode config
+(require 'yard-mode)
+(add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'ruby-mode-hook 'eldoc-mode)
+
