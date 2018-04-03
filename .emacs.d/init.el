@@ -57,6 +57,14 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+;; load all .el files in the custom/ directory
+(defun load-directory (dir)
+  (let ((load-it (lambda (f)
+                   (load-file (concat (file-name-as-directory dir) f)))
+                 ))
+    (mapc load-it (directory-files dir nil "\\.el$"))))
+(load-directory "~/.emacs.d/custom/")
+
 ;; initialize modes
 (smartparens-global-mode t)             ;smart parens
 (global-linum-mode t)                   ;line numbers on
@@ -118,8 +126,7 @@
   (yas-global-mode 1)
   (yas-reload-all))
 
-;; use column-marker
-(load "~/.emacs.d/custom/column-marker")
+;; ;; use column-marker
 (require 'column-marker)
 (add-hook 'after-init-hook (lambda () (interactive) (column-marker-1 80)))
  
@@ -134,11 +141,10 @@
                         (agenda . 5)
                         (registers . 5)))
 
-;; load copy-line function
-(load "~/.emacs.d/custom/copy-line")
-
 ;; YARD mode config
 (require 'yard-mode)
 (add-hook 'ruby-mode-hook 'yard-mode)
 (add-hook 'ruby-mode-hook 'eldoc-mode)
 
+;; rex mode for oedipus_lex files ending in .rex
+(require 'rex-mode)
