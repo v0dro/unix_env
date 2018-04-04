@@ -4,3 +4,4 @@
 ;; * support TODO, FIXME tags with highlighting.
 ;; * automate generation of license/author banner at the start of files.
 ;; * write yasnippet for generating YARD docs for ruby-mode.
+;; * running rspec properly from within emacs.
