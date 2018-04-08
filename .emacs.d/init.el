@@ -23,7 +23,8 @@
                      yasnippet
                      page-break-lines
                      dashboard
-                     yard-mode))
+                     yard-mode
+                     scala-mode))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
@@ -154,3 +155,8 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+
+;; scala mode enable
+(use-package scala-mode
+  :interpreter
+  ("scala" . scala-mode))
