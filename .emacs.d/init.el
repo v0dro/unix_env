@@ -18,7 +18,6 @@
                      helm-projectile
                      company
                      markdown-toc
-                     magit
                      use-package
                      yasnippet
                      page-break-lines
@@ -160,3 +159,12 @@
 (use-package scala-mode
   :interpreter
   ("scala" . scala-mode))
+
+;; set default of tramp mode to ssh
+(setq tramp-default-method "ssh")
+
+;; setup mozc japanese keyboard (be sure to install emacs-mozc-bin pacakge on ubuntu)
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
+(setq mozc-candidate-style 'overlay)
+

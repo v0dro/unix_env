@@ -7,3 +7,5 @@
 ;; * running rspec properly from within emacs.
 ;; * yasnippet for generaring YARD params from function arguments.
 ;; * yasnippet for @params in YARD docs.
+;; * yasnippet for making links in org-mode.
+;; * which-function-mode shows up in both top and bottom. make it top only.

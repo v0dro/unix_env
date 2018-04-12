@@ -33,7 +33,7 @@
 ;; * Proper regex coloring is gone when a double quote is there inside regex (/"/)
 ;; * The 'options', 'macros' etc keywords are not properly highlighted.
 ;; * If a rule starts with a regex that contains the macro inside a #{}, the
-;;   highlighting is not proper.
+;;   highlighting is not proper. This is cuz its thinking that the # is a comment.
 ;; * Proper indentation is gone when using tab under keyword like macros/options.
 
 ;;; Code:
