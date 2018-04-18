@@ -1,0 +1,9 @@
+# mode: ruby-mode
+# name: Write @params attribute of YARD docs.
+# key: pr
+# group: yard_docs
+# contributor: Sameer Deshmukh (@v0dro)
+# --
+
+# @param ${1: arg name} [${2: data type}] ${3: description.}
+$0
