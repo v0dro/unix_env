@@ -23,7 +23,8 @@
                      page-break-lines
                      dashboard
                      yard-mode
-                     scala-mode))
+                     scala-mode
+                     cuda-mode))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
