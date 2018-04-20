@@ -1,16 +1,18 @@
 #!/bin/bash
 # Setup a machine with required software.
+# This script assumes that the computer uses a Debian environment.
 # author: Sameer Deshmukh (@v0dro)
 
-if [-z "$SERVER_ENV"] && [-z "$DESKTOP_ENV"]; then # neither vars are set
-    echo "Set SERVER_ENV or DESKTOP_ENV"
+# Checking for git.
+if ! hash git 2>/dev/null; then
+    echo "Please install git before proceeding."
     exit 1
 fi
 
-if [-n "$SERVER_ENV"]; then # SERVER_ENV is set
-    
-elif [-n "$DESKTOP_ENV"]; then # DESKTOP_ENV is set
-    
+# Checking for emacs
+if ! hash emacs 2>/dev/null; then
+    echo "Please install emacs before proceeding."
+    exit 1
 fi
 
 # install rvm and ruby
@@ -33,7 +35,6 @@ curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools
 mv .zshrc_backup .zshrc
 
 # TODO:
-# * Have a way to clone my zshrc wihthout having oh my zsh interfere with it.
 # * The path of ohmyzsh in the zshrc changes according to the user name.
 # * Show machine name in command line so i'll know which machine i'm inside for each shell.
 # Something like tsubame@<whatever thing from zsh>. The word 'tsubame' should be taken from
@@ -42,7 +43,6 @@ mv .zshrc_backup .zshrc
 # * Fix compilation window encoding malfunction in emacs.
 # * Have separete environments for remote server and desktop.
 #   * DESKTOPS:
-#     * Install slack.
 #   * SERVERS:
 # * Copy terminal setting accross machines
 # * Copy mozc keyboard settings across machines, including keyboard shortcuts.
@@ -51,4 +51,6 @@ mv .zshrc_backup .zshrc
 # * Setup account with firefox.
 # * Setup account with thunderbird.
 # * Install tokyo tech login info on firefox.
-# * 
+# * Install slack: https://slack.com/downloads/linux
+# * Install anaconda: https://www.anaconda.com/download/#linux
+# * Install emacs-mozc-bin package.
