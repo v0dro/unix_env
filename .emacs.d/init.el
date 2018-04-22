@@ -164,8 +164,12 @@
 ;; set default of tramp mode to ssh
 (setq tramp-default-method "ssh")
 
+;; doc-view mode default continuos scrolling
+(setq doc-view-continuous 1)
+
 ;; setup mozc japanese keyboard (be sure to install emacs-mozc-bin pacakge on ubuntu)
 (require 'mozc)
 (setq default-input-method "japanese-mozc")
 (setq mozc-candidate-style 'overlay)
+
 

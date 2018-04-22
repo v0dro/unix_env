@@ -35,7 +35,6 @@ curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools
 mv .zshrc_backup .zshrc
 
 # TODO:
-# * The path of ohmyzsh in the zshrc changes according to the user name.
 # * Show machine name in command line so i'll know which machine i'm inside for each shell.
 # Something like tsubame@<whatever thing from zsh>. The word 'tsubame' should be taken from
 # an env variable that I'll set according to which machine i'm on so it should check for this
