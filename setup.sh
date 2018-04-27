@@ -17,7 +17,7 @@ fi
 
 echo "install packages..."
 if [-n "$DESKTOP_ENV"]; then
-    sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi
+    sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi net-tools
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     ~/.dropbox-dist/dropboxd
 fi
