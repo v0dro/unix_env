@@ -15,6 +15,13 @@ if ! hash emacs 2>/dev/null; then
     exit 1
 fi
 
+echo "install packages..."
+if [-n "$DESKTOP_ENV"]; then
+    sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi
+    cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    ~/.dropbox-dist/dropboxd
+fi
+
 # install rvm and ruby
 echo "Installing rvm and ruby.."
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -35,18 +42,19 @@ if [-n "$DESKTOP_ENV"]; then
 fi
 
 # install oh my zsh
-echo "Installing oh my zsh.."
-if [-n "$DESKTOP_ENV"]; then
-    sudo apt-get install zsh
-fi
 chsh -s /bin/zsh
 cp .zshrc .zshrc_backup
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 mv .zshrc_backup .zshrc
 
-echo "make buttons appear to the left side..."
+echo "hide top bar of GNOME shell..."
 if [-n "$DESKTOP_ENV"]; then
-    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
+    cd ~/.local/share/gnome-shell/extensions/
+    git clone https://github.com/mlutfy/hidetopbar.git hidetopbar@mathieu.bidon.ca
+    cd hidetopbar@mathieu.bidon.ca
+    make schemas
+    gnome-shell-extension-tool -e hidetopbar@mathieu.bidon.ca
+    gnome-shell --replace &
 fi
 
 
