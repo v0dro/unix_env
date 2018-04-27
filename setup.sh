@@ -27,12 +27,28 @@ cd gitrepos
 git clone https://github.com/v0dro/scratch
 cd
 
+# download and intall mendeley
+if [-n "$DESKTOP_ENV"]; then
+    curl https://desktop-download.mendeley.com/download/apt/pool/main/m/mendeleydesktop/mendeleydesktop_1.18-stable_amd64.deb
+    sudo dpkg -i mendeleydesktop_1.18-stable_amd64.deb
+    rm mendeleydesktop_1.18-stable_amd64.deb
+fi
+
 # install oh my zsh
 echo "Installing oh my zsh.."
+if [-n "$DESKTOP_ENV"]; then
+    sudo apt-get install zsh
+fi
 chsh -s /bin/zsh
 cp .zshrc .zshrc_backup
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 mv .zshrc_backup .zshrc
+
+echo "make buttons appear to the left side..."
+if [-n "$DESKTOP_ENV"]; then
+    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
+fi
+
 
 # TODO:
 # * Show machine name in command line so i'll know which machine i'm inside for each shell.

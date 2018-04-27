@@ -9,6 +9,7 @@
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults
+                     dracula-theme
                      markdown-mode
                      smartparens
                      enh-ruby-mode
@@ -37,8 +38,6 @@
 ;; ----------------------------------------------------------------
 
 ;; initialize with dracula theme
-(add-to-list
- 'custom-theme-load-path "~/.emacs.d/themes/dracula" )
 (load-theme 'dracula t)
 
 ;; require use-package
@@ -166,11 +165,6 @@
 
 ;; doc-view mode default continuos scrolling
 (setq doc-view-continuous 1)
-
-;; setup mozc japanese keyboard (be sure to install emacs-mozc-bin pacakge on ubuntu)
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'overlay)
 
 ;; hippie expand completions list
 (setq hippie-expand-try-functions-list '(
