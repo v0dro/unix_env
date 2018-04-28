@@ -1,3 +1,9 @@
+# keys:
+#  Mod1    == Alt
+#  Mod4    == Windows key
+#  Control == Ctrl
+#  Shift   == Shift
+
 # click on the desktop to get menus
 OnDesktop Mouse1 :HideMenus
 OnDesktop Mouse2 :WorkspaceMenu
@@ -61,7 +67,7 @@ Mod4 9 :Tab 9
 Mod1 F1 :Exec xfce4-terminal
 
 # open a dialog to run programs
-Mod1 F2 :Exec rofi -show run
+Mod4 R :ExecCommand rofi -show run
 Mod1 Tab :Exec rofi -show window
 
 # volume settings, using common keycodes

@@ -16,6 +16,12 @@ xmodmap "/home/sameer/.Xmodmap"
 
 # easy netoworking with NetworkManager interface
 nm-applet &
+
+# power management
+mate-power-manager &
+
+# volume icon
+volumeicon &
 # unclutter -idle 2 &
 # wmnd &
 # wmsmixer -w &
