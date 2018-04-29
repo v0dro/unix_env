@@ -17,7 +17,7 @@ fi
 
 echo "install packages..."
 if [-n "$DESKTOP_ENV"]; then
-    sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi net-tools mate-power-manager arandr volumeicon-alsa
+    sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi net-tools mate-power-manager arandr volumeicon-alsa gnome-screenshot
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     ~/.dropbox-dist/dropboxd
 fi
@@ -46,17 +46,6 @@ chsh -s /bin/zsh
 cp .zshrc .zshrc_backup
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 mv .zshrc_backup .zshrc
-
-echo "hide top bar of GNOME shell..."
-if [-n "$DESKTOP_ENV"]; then
-    cd ~/.local/share/gnome-shell/extensions/
-    git clone https://github.com/mlutfy/hidetopbar.git hidetopbar@mathieu.bidon.ca
-    cd hidetopbar@mathieu.bidon.ca
-    make schemas
-    gnome-shell-extension-tool -e hidetopbar@mathieu.bidon.ca
-    gnome-shell --replace &
-fi
-
 
 # TODO:
 # * Show machine name in command line so i'll know which machine i'm inside for each shell.
