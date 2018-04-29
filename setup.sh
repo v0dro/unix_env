@@ -19,8 +19,13 @@ echo "install packages..."
 if [-n "$DESKTOP_ENV"]; then
     sudo apt-get install build-essential git emacs zsh curl texlive texlive-full dirmngr fluxbox rofi net-tools mate-power-manager arandr volumeicon-alsa gnome-screenshot
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-    ~/.dropbox-dist/dropboxd
+    ~/.dropbox-dist/dropboxd &
 fi
+
+echo "Install adobe source code pro fonts..."
+mkdir -p ~/.fonts/adobe-fonts/source-code-pro
+git clone https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
+fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 
 # install rvm and ruby
 echo "Installing rvm and ruby.."
