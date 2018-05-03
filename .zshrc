@@ -40,6 +40,9 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# show hostname and username in prompt or not. comment this line if no need.
+export SHOW_HOST_AND_USER_IN_PROMPT=1
+
 # japanese keyboard
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
@@ -62,3 +65,8 @@ alias ruby_tags="ripper-tags -R -e"
 
 # OPAM configuration
 . /home/sameer/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# oh my zsh prompt
+if [ ! -z "$SHOW_HOST_AND_USER_IN_PROMPT" ]; then
+  PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
+fi
