@@ -41,7 +41,7 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # show hostname and username in prompt or not. comment this line if no need.
-export SHOW_HOST_AND_USER_IN_PROMPT=1
+# export SHOW_HOST_AND_USER_IN_PROMPT=1
 
 # japanese keyboard
 export QT_IM_MODULE=fcitx
