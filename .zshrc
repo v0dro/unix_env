@@ -38,7 +38,12 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# add rvm to path
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# added by Anaconda3 installer
+export PATH="/home/sameer/anaconda3/bin:$PATH"
+
 
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
@@ -70,3 +75,4 @@ alias ruby_tags="ripper-tags -R -e"
 if [ ! -z "$SHOW_HOST_AND_USER_IN_PROMPT" ]; then
   PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
 fi
+
