@@ -178,11 +178,5 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
-;; set typeface
-(when (featurep 'ns-win)
-  (custom-set-faces
-   '(default ((t (:height 140 :width normal :family "Anonymous_Pro")))))
-  )
-
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
