@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -41,9 +43,18 @@ fi
 # add rvm to path
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# added by Anaconda3 installer
-export PATH="/home/sameer/anaconda3/bin:$PATH"
-
+# some system specific exports
+if [ "$(uname)" "==" "Darwin" ]; then
+    # Do something under Mac OS X platform
+    export PATH="/Users/sameer/anaconda3/bin:$PATH"
+elif [ "$(expr substr $(uname -s) 1 5)" "==" "Linux" ]; then
+    # Do something under GNU/Linux platform
+    export PATH="/home/sameer/anaconda3/bin:$PATH"
+elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
+fi
 
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
