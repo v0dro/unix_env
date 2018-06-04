@@ -180,3 +180,6 @@
 
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
+
+;; set org mode agenda
+(setq org-agenda-files (list "~/Dropbox/memos/2018/june/todos.org"))
