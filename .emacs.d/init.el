@@ -75,7 +75,7 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; use space instead of tabs
-(setq tab-width 2) 
+(setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 
 ;; change the binding for C-x o
