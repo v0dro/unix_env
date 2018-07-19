@@ -87,3 +87,4 @@ if [ ! -z "$SHOW_HOST_AND_USER_IN_PROMPT" ]; then
   PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
 fi
 
+alias para="cd ~/gitrepos/scratch/c_shizzle/parallel"
