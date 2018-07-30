@@ -57,6 +57,7 @@
 (helm-projectile-on)
 
 ;; load all .el files in the custom/ directory
+(load-file "~/.emacs.d/custom/mozc.el")
 (defun load-directory (dir)
   (let ((load-it (lambda (f)
                    (load-file (concat (file-name-as-directory dir) f)))
@@ -182,3 +183,4 @@
 
 ;; set org mode agenda
 (setq org-agenda-files (list "~/Dropbox/memos/2018/june/todos.org"))
+
