@@ -88,3 +88,5 @@ if [ ! -z "$SHOW_HOST_AND_USER_IN_PROMPT" ]; then
 fi
 
 alias para="cd ~/gitrepos/scratch/c_shizzle/parallel"
+alias rrr="rake clobber && rake compile && rspec"
+alias rrrf="rake clobber && rake compile && rspec --t=focus"
