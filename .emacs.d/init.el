@@ -25,7 +25,10 @@
                      dashboard
                      yard-mode
                      scala-mode
-                     cuda-mode))
+                     cuda-mode
+                     counsel
+                     function-args
+                     ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
 ; fetch the list of packages available 
@@ -166,19 +169,6 @@
 
 ;; doc-view mode default continuos scrolling
 (setq doc-view-continuous 1)
-
-;; hippie expand completions list
-(setq hippie-expand-try-functions-list '(
-                                         try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-all-abbrevs
-                                         try-expand-list
-                                         try-expand-line
-                                         try-complete-lisp-symbol-partially
-                                         try-complete-lisp-symbol))
 
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
