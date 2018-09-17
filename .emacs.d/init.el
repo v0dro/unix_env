@@ -4,7 +4,7 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(package-refresh-contents)
+;;(package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults
@@ -14,6 +14,7 @@
                      enh-ruby-mode
                      inf-ruby
                      helm
+                     helm-gtags
                      projectile
                      helm-projectile
                      company
@@ -36,6 +37,15 @@
     (package-install package)))
 ;; ----------------------------------------------------------------
 
+;; load all .el files in the custom/ directory
+(load-file "~/.emacs.d/custom/mozc.el")
+(defun load-directory (dir)
+  (let ((load-it (lambda (f)
+                   (load-file (concat (file-name-as-directory dir) f)))
+                 ))
+    (mapc load-it (directory-files dir nil "\\.el$"))))
+(load-directory "~/.emacs.d/custom/")
+
 ;; initialize with dracula theme
 (load-theme 'dracula t)
 
@@ -51,19 +61,11 @@
 (helm-mode 1)
 
 (require 'helm-projectile)
+(require 'setup-helm-gtags)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-
-;; load all .el files in the custom/ directory
-(load-file "~/.emacs.d/custom/mozc.el")
-(defun load-directory (dir)
-  (let ((load-it (lambda (f)
-                   (load-file (concat (file-name-as-directory dir) f)))
-                 ))
-    (mapc load-it (directory-files dir nil "\\.el$"))))
-(load-directory "~/.emacs.d/custom/")
 
 ;; initialize modes
 (smartparens-global-mode t)             ;smart parens
@@ -90,6 +92,7 @@
 
 ;; company mode for auto complete
 (add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "M-/") 'company-complete-common)
 
 ;; In Ruby mode, patch the # key to make {} when inside a string
 (defun senny-ruby-interpolate ()
@@ -120,7 +123,6 @@
                                           mode-line-format) mode-line-format)
           header-line-format which-func-header-line-format)))
 
-;; yasnippet configs
 (use-package yasnippet
   :ensure t
   :config
@@ -181,6 +183,5 @@
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
 
-;; set org mode agenda
-(setq org-agenda-files (list "~/Dropbox/memos/2018/june/todos.org"))
-
+;; function-args config
+(fa-config-default)
