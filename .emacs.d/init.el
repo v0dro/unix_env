@@ -4,7 +4,7 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-;;(package-refresh-contents)
+(package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults
