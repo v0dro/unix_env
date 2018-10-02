@@ -90,3 +90,13 @@ fi
 alias para="cd ~/gitrepos/scratch/c_shizzle/parallel"
 alias rrr="rake clobber && rake compile && rspec"
 alias rrrf="rake clobber && rake compile && rspec --t=focus"
+
+# Copy a folder from this machine to a machine over ssh.
+#
+# Usage: cp_ssh /home/folder/name remote_machine_name /remote/folder/name
+cp_ssh()
+{
+    ssh_user_name=$(ssh -G $2 | grep "user " | cut -c 6-)
+    scp -r $1 $ssh_user_name@$2:$3
+}
+
