@@ -93,10 +93,15 @@ alias rrrf="rake clobber && rake compile && rspec --t=focus"
 
 # Copy a folder from this machine to a machine over ssh.
 #
-# Usage: cp_ssh /home/folder/name remote_machine_name /remote/folder/name
+# Usage: cp_ssh home/folder/name remote_machine_name remote/folder/name
 cp_ssh()
 {
     ssh_user_name=$(ssh -G $2 | grep "user " | cut -c 6-)
     scp -r $1 $ssh_user_name@$2:$3
 }
 
+# Specify a file. This function will copy it to all hosts in .ssh/config
+#   to their respective ~/software directories and run the following commands
+#   on them. Note that file should be a tar archive.
+#
+# 

@@ -28,6 +28,7 @@
                      cuda-mode
                      counsel
                      function-args
+                     ansi-color
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -175,3 +176,21 @@
 
 ;; function-args config
 (fa-config-default)
+
+;; ansi color for compilation buffer
+(require 'ansi-color)
+(defun my/ansi-colorize-buffer ()
+  (let ((buffer-read-only nil))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer)
+
+;; switch between implementation and header.
+(add-hook 'c-mode-common-hook
+  (lambda() 
+    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+
+(use-package neotree
+  :ensure t
+  :bind (([f8] . neotree-toggle))
+  :config (setq neo-autorefresh nil))
+(put 'set-goal-column 'disabled nil)

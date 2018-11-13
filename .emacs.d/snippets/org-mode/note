@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Add a note to a beamer presentatation slide 
+# key: note
+# group: org-beamer
+# contributor: Sameer Deshmukh(@v0dro)
+# --
+
+*** Note
+
+:PROPERTIES:
+:BEAMER_ENV: note
+:END:
+$0
