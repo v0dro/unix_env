@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Insert code block in org beamer
+# key: lcode
+# group: org-beamer
+# contributor: Sameer Deshmukh (@v0dro)
+# --
+
+#+BEGIN_LaTeX
+\begin{lstlisting}[language=$1]
+$0
+\end{lstlisting}
+#+END_LaTeX

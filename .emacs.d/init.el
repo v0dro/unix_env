@@ -194,3 +194,10 @@
   :bind (([f8] . neotree-toggle))
   :config (setq neo-autorefresh nil))
 (put 'set-goal-column 'disabled nil)
+
+;; latex 
+(require 'ox-latex)
+
+(setq org-latex-listings t)
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("" "color"))
