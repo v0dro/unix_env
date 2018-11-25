@@ -239,3 +239,23 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
+;; In Ruby mode, patch the # key to make {} when inside a string
+(defun senny-ruby-interpolate ()
+  "In a double quoted string, interpolate."
+  (interactive)
+  (insert "#")
+  (when (and
+         (looking-back "\".*")
+         (looking-at ".*\""))
+    (insert "{}")
+    (backward-char 1)))
+
+(eval-after-load 'enh-ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+
+(put 'erase-buffer 'disabled nil)
+
+;; ruby-block
+(require 'ruby-block)
+(ruby-block-mode t)
