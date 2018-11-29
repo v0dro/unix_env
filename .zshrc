@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Add wisely, as too many plugins slow down shell startup.
+# oh-my-zsh themes
 plugins=(git emacs)
 
 source $ZSH/oh-my-zsh.sh
@@ -100,8 +100,8 @@ cp_ssh()
     scp -r $1 $ssh_user_name@$2:$3
 }
 
-# Specify a file. This function will copy it to all hosts in .ssh/config
-#   to their respective ~/software directories and run the following commands
-#   on them. Note that file should be a tar archive.
-#
-# 
+# add rtags server to PATH
+export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
+for c in cc c++ gcc g++ mpicc mpicxx; do # link gcc with rtags clang backend
+    ln -s ./gcc-rtags-wrapper.sh "$c"
+done
