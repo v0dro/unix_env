@@ -1,0 +1,36 @@
+# -*- mode: snippet -*-
+# name: Create org-mode template for paper/thesis/slides summarization
+# key: !paper
+# group: org-notes
+# contributor: Sameer Deshmukh (@v0dro)
+# --
+* TODO ${1:<insert title here>}                                        :paper:${2:<insert keywords>}:
+** Author and Conference/Journal :${3:<insert publication year>}:
+Author: ${4:<insert author>}
+Conference:
+Journal:
+** Link
+${5:<insert link>}
+** Abstract
+$0
+** Conclusions
+
+-- stop reading if above 2 not relevant
+
+** Tables, figures and their labels
+
+Look for details on results and procedures from diagrams.
+
+** Introduction
+
+Why did the authors do this particular study?
+
+** Results and discussions
+
+This is the heart tof the paper.
+
+** Read the experimental and theory section
+
+This is how the work was done. ONLY read this if you need to know how things
+workd and things are very relevant to you.
+Make notes.

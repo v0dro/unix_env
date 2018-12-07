@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Put block for code sample
+# key: cb
+# group: code
+# contributor: Sameer Deshmukh (@v0dro)
+# --
+
+#+NAME: ${1: Describe this code block}
+#+BEGIN_SRC
+$0
+#+END_SRC
