@@ -1,0 +1,51 @@
+# -*- mode: snippet -*-
+# name: Create org-mode template for weekly schedule
+# key: !week
+# group: org-notes
+# contributor: Sameer Deshmukh (@v0dro)
+# --
+* Week Priorities
+** Work priorities
+$0
+** Learning priorities
+** Exercise priorities
+* PMS
+* Roles
+* Goals
+* Daily plans
+** Monday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Tuesday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Wednesday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Thursday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Friday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Saturday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+** Sunday
+*** Today's priorities
+*** Planned schedule
+*** Actual schedule
+*** Time summary
+* Nice reads
