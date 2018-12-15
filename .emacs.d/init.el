@@ -4,7 +4,7 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(package-refresh-contents)
+;;(package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults
@@ -42,6 +42,7 @@
 ;; ----------------------------------------------------------------
 
 ;; load all .el files in the custom/ directory
+;; (load-file "~/.emacs.d/custom/utils.el")
 (load-file "~/.emacs.d/custom/mozc.el")
 (defun load-directory (dir)
   (let ((load-it (lambda (f)
