@@ -194,7 +194,6 @@
   :ensure t
   :bind (([f8] . neotree-toggle))
   :config (setq neo-autorefresh nil))
-(put 'set-goal-column 'disabled nil)
 
 ;; latex 
 (require 'ox-latex)
@@ -260,3 +259,4 @@
 ;; ruby-block
 (require 'ruby-block)
 (ruby-block-mode t)
+
