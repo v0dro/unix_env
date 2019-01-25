@@ -102,6 +102,6 @@ cp_ssh()
 
 # add rtags server to PATH
 export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
-# for c in cc c++ gcc g++ mpicc mpicxx; do # link gcc with rtags clang backend
-#     ln -s ./gcc-rtags-wrapper.sh "$c"
-# done
+
+# Intel trace analyser
+alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
