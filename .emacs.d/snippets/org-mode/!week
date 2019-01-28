@@ -17,41 +17,39 @@ $0
 * Roles
 * Goals
 * Daily plans
-** Monday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Tuesday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Wednesday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Thursday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Friday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Saturday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
-** Sunday
-*** Today's priorities
-*** Planned schedule
-*** Actual schedule
-*** Time summary
+** Ideal schedule
+  
+  |          | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 |
+  |----------+---+----+----+----+----+----+----+----+----+----+----+----+----+----+----|
+  | Monday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Tuesday  |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Wedesday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Thursday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Friday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Saturday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Sunday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+
+
+** Actual schedule
+
+  |          | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 |
+  |----------+---+----+----+----+----+----+----+----+----+----+----+----+----+----+----|
+  | Monday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Tuesday  |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Wedesday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Thursday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Friday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Saturday |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+  | Sunday   |   |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+
+
+** Monday priorities
+** Tuesday priorities
+** Wednesday priorities
+** Thursday priorities
+** Friday priorities
+** Saturday priorities
+** Sunday priorities
 * Reflection
 ** What are the big wins for the week?
 ** What are the big misses or learnings?
