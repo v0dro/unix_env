@@ -225,13 +225,6 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 (setq reftex-plug-into-AUCTeX t) ; Anleitung S. 4
 
-;; enh-ruby-mode
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'enh-ruby-mode-hook 'yard-mode)
-
-(add-to-list 'auto-mode-alist
-             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
-
 ;; robe mode
 (require 'rvm)
 (rvm-use-default) ;; use rvm's default ruby for the current Emacs session
@@ -239,24 +232,11 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-;; In Ruby mode, patch the # key to make {} when inside a string
-(defun senny-ruby-interpolate ()
-  "In a double quoted string, interpolate."
-  (interactive)
-  (insert "#")
-  (when (and
-         (looking-back "\".*")
-         (looking-at ".*\""))
-    (insert "{}")
-    (backward-char 1)))
-
-(eval-after-load 'enh-ruby-mode
-  '(progn
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
-
 (put 'erase-buffer 'disabled nil)
 
 ;; ruby-block
 (require 'ruby-block)
 (ruby-block-mode t)
 
+;; ;; setup enh-ruby-mode
+;; (require 'setup-enh-ruby-mode)
