@@ -105,3 +105,7 @@ export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
 
 # Intel trace analyser
 alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
+
+# Parsec configurations
+export PKG_CONFIG_PATH="/home/sameer/gitrepos/parsec/build/lib/pkgconfig"
+export LD_LIBRARY_PATH="/home/sameer/gitrepos/parsec/build/parsec"
