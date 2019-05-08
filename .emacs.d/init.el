@@ -29,6 +29,7 @@
                      counsel
                      function-args
                      ansi-color
+                     aggressive-indent
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -40,6 +41,17 @@
   (unless (package-installed-p package)
     (package-install package)))
 ;; ----------------------------------------------------------------
+
+(defun set-window-width (n)
+  "Set the selected window's width."
+  (adjust-window-trailing-edge (selected-window) (- n (window-width)) t))
+
+(defun set-80-columns ()
+  "Set the selected window to 80 columns."
+  (interactive)
+  (set-window-width 80))
+
+(global-set-key (kbd "C-x ~") 'set-80-columns)
 
 ;; load all .el files in the custom/ directory
 ;; (load-file "~/.emacs.d/custom/utils.el")
@@ -85,6 +97,7 @@
 ;; use space instead of tabs
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
+(setq js-indent-level 2)
 
 ;; change the binding for C-x o
 (global-set-key (kbd "M-o") 'other-window)
@@ -110,9 +123,9 @@
     (insert "{}")
     (backward-char 1)))
 
-(eval-after-load 'ruby-mode
+(eval-after-load 'enh-ruby-mode
   '(progn
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+     (define-key enh-ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 
 (put 'erase-buffer 'disabled nil)
 
@@ -223,7 +236,12 @@
 ;; enable reftex with auctex
 (require 'reftex)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-(setq reftex-plug-into-AUCTeX t) ; Anleitung S. 4
+(setq reftex-plug-into-AUCTeX t) ; Anleitung S.
+
+(setq reftex-default-bibliography '("/home/sameer/Downloads/Zotero_linux-x86_64/zotero.bib"))
+(setq bibtex-completion-bibliography '("/home/sameer/Downloads/Zotero_linux-x86_64/zotero.bib"))
+(add-hook 'TeX-mode-hook
+          (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
 ;; robe mode
 (require 'rvm)
@@ -238,5 +256,6 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 
-;; ;; setup enh-ruby-mode
-;; (require 'setup-enh-ruby-mode)
+(add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
+
+(global-aggressive-indent-mode 1)

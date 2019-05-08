@@ -46,10 +46,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # some system specific exports
 if [ "$(uname)" "==" "Darwin" ]; then
     # Do something under Mac OS X platform
-    export PATH="/Users/sameer/anaconda3/bin:$PATH"
+# export PATH="/Users/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
 elif [ "$(expr substr $(uname -s) 1 5)" "==" "Linux" ]; then
     # Do something under GNU/Linux platform
-    export PATH="/home/sameer/anaconda3/bin:$PATH"
+# export PATH="/home/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
 elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
 elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW64_NT" ]; then
@@ -106,6 +106,30 @@ export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
 # Intel trace analyser
 alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
 
-# Parsec configurations
-export PKG_CONFIG_PATH="/home/sameer/gitrepos/parsec/build/lib/pkgconfig"
-export LD_LIBRARY_PATH="/home/sameer/gitrepos/parsec/build/parsec"
+# STARPU/PARSEC configurations
+export STARPU_PATH=/home/sameer/gitrepos/starpu-1.2.8
+export PKG_CONFIG_PATH="/home/sameer/gitrepos/starpu-1.2.8:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
+export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec"
+export PATH="$STARPU_PATH/bin:$PATH"
+export STARPU_FXT_PREFIX="/home/sameer/gitrepos/hicma"
+export STARPU_FXT_TRACE=1
+export STARPU_GENERATE_TRACE=1
+
+# YARN binaries
+export PATH="$PATH:`yarn global bin`"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sameer/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
