@@ -108,15 +108,23 @@ alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
 
 # STARPU/PARSEC configurations
 export STARPU_PATH=/home/sameer/gitrepos/starpu-1.2.8
-export PKG_CONFIG_PATH="/home/sameer/gitrepos/starpu-1.2.8:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
+export PKG_CONFIG_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib/pkgconfig:/home/sameer/gitrepos/starpu-1.2.8:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
 export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec"
 export PATH="$STARPU_PATH/bin:$PATH"
 export STARPU_FXT_PREFIX="/home/sameer/gitrepos/hicma"
 export STARPU_FXT_TRACE=1
 export STARPU_GENERATE_TRACE=1
 
+# HiCMA config
+export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu-1.2.8/include/starpu/1.2"
+export HICMA_LIB="-L/home/sameer/gitrepos/starpu-1.2.8/lib"
+export HICMA_SHARED_LIBS=" -lblas -llapacke "
+
 # YARN binaries
 export PATH="$PATH:`yarn global bin`"
+
+# PAPI config
+export LD_LIBRARY_PATH="/home/sameer/gitrepos/papi/lib:$LD_LIBRARY_PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

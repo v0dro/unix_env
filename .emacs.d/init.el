@@ -26,7 +26,6 @@
                      yard-mode
                      scala-mode
                      cuda-mode
-                     counsel
                      function-args
                      ansi-color
                      aggressive-indent
@@ -83,6 +82,17 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+
+;; enable reftex with auctex
+(require 'reftex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+(setq reftex-plug-into-AUCTeX t) ; Anleitung S.
+(setq reftex-default-bibliography '(
+                                    "/home/sameer/gitrepos/sameer-ieee-cluster/reference.bib"
+                                    "/home/sameer/gitrepos/sameer-ieee-cluster/sameer_ref.bib"
+                                    ))
+(add-hook 'TeX-mode-hook
+          (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
 ;; initialize modes
 (smartparens-global-mode t)             ;smart parens
@@ -232,16 +242,6 @@
  (setq pdf-annot-activate-created-annotations t)
  ;; use normal isearch
  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
-
-;; enable reftex with auctex
-(require 'reftex)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-(setq reftex-plug-into-AUCTeX t) ; Anleitung S.
-
-(setq reftex-default-bibliography '("/home/sameer/Downloads/Zotero_linux-x86_64/zotero.bib"))
-(setq bibtex-completion-bibliography '("/home/sameer/Downloads/Zotero_linux-x86_64/zotero.bib"))
-(add-hook 'TeX-mode-hook
-          (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
 ;; robe mode
 (require 'rvm)
