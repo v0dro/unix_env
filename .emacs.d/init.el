@@ -25,7 +25,6 @@
                      dashboard
                      yard-mode
                      cuda-mode
-                     function-args
                      ansi-color
                      aggressive-indent
                      ))
@@ -195,9 +194,6 @@
 
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
-
-;; function-args config
-(fa-config-default)
 
 ;; ansi color for compilation buffer
 (require 'ansi-color)
