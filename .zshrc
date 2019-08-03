@@ -23,10 +23,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='emacs'
+   export EDITOR='emacs25'
 else
-   export EDITOR='emacs'
+   export EDITOR='emacs25'
 fi
+alias emacsclient="emacsclient.emacs25"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -66,7 +67,7 @@ export GTK_IM_MODULE=fcitx
 # Aliases
 alias gs="git status"
 alias gp="git push origin master"
-alias matlab="/usr/local/MATLAB/R2017b/bin/matlab"
+alias matlab="/usr/local/bin/matlab"
 
 # wifi commands
 alias wifi_list="nmcli device wifi list"

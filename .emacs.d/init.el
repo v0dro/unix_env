@@ -24,7 +24,6 @@
                      page-break-lines
                      dashboard
                      yard-mode
-                     scala-mode
                      cuda-mode
                      function-args
                      ansi-color
@@ -88,8 +87,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 (setq reftex-plug-into-AUCTeX t) ; Anleitung S.
 (setq reftex-default-bibliography '(
-                                    "/home/sameer/gitrepos/sameer-ieee-cluster/reference.bib"
-                                    "/home/sameer/gitrepos/sameer-ieee-cluster/sameer_ref.bib"
+                                    "/home/sameer/gitrepos/m-thesis-sameer/reference.bib"
                                     ))
 (add-hook 'TeX-mode-hook
           (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
