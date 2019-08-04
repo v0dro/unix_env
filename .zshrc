@@ -122,7 +122,7 @@ export HICMA_LIB="-L/home/sameer/gitrepos/starpu-1.2.8/lib"
 export HICMA_SHARED_LIBS=" -lblas -llapacke "
 
 # YARN binaries
-export PATH="$PATH:`yarn global bin`"
+#export PATH="$PATH:`yarn global bin`"
 
 # PAPI config
 export LD_LIBRARY_PATH="/home/sameer/gitrepos/papi/lib:$LD_LIBRARY_PATH"
@@ -134,7 +134,7 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
+        emulate bash -c "/home/sameer/anaconda3/etc/profile.d/conda.sh"
     else
         export PATH="/home/sameer/anaconda3/bin:$PATH"
     fi
