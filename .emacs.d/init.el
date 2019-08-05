@@ -26,7 +26,6 @@
                      yard-mode
                      cuda-mode
                      ansi-color
-                     aggressive-indent
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -251,5 +250,3 @@
 (ruby-block-mode t)
 
 (add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
-
-(global-aggressive-indent-mode 1)
