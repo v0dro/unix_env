@@ -80,6 +80,9 @@ alias batt_stat="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 # ruby tags generator for emacs
 alias ruby_tags="ripper-tags -R -e"
 
+# start zotero
+alias zot="/home/sameer/Downloads/Zotero_linux-x86_64/zotero"
+
 # OPAM configuration
 . /home/sameer/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
