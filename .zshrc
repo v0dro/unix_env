@@ -130,6 +130,11 @@ export HICMA_SHARED_LIBS=" -lblas -llapacke "
 # PAPI config
 export LD_LIBRARY_PATH="/home/sameer/gitrepos/papi/lib:$LD_LIBRARY_PATH"
 
+# Hlibpro config
+export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
+# add conda to PATH
+export PATH="/home/sameer/anaconda3/bin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -137,7 +142,7 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
-        emulate bash -c "/home/sameer/anaconda3/etc/profile.d/conda.sh"
+        . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
     else
         export PATH="/home/sameer/anaconda3/bin:$PATH"
     fi
