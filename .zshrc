@@ -103,6 +103,8 @@ cp_ssh()
     ssh_user_name=$(ssh -G $2 | grep "user " | cut -c 6-)
     scp -r $1 $ssh_user_name@$2:$3
 }
+export ABCI_HOME="/home/acb10922qh"
+export T3_HOME="/home/1/17M38101"
 
 # add rtags server to PATH
 export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
