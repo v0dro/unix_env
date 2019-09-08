@@ -123,7 +123,7 @@ export STARPU_GENERATE_TRACE=1
 
 # HiCMA config
 export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu-1.2.8/include/starpu/1.2"
-export HICMA_LIB="-L/home/sameer/gitrepos/starpu-1.2.8/lib"
+export HICMA_LIB="-L/home/sameer/gitrepos/starpu-1.2.8/lib -lstarpu-1.2 -lstarpumpi-1.2"
 export HICMA_SHARED_LIBS=" -lblas -llapacke "
 
 # YARN binaries
