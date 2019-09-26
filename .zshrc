@@ -32,30 +32,21 @@ alias emacsclient="emacsclient.emacs25"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# helpful functions for pytorch dev
+pyt_update() {
+    git pull --rebase
+    git submodule sync --recursive
+    git submodule update --init --recursive
+    python setup.py develop
+    python test/run_test.py
+}
+
 # add rvm to path
 export PATH="$PATH:$HOME/.rvm/bin"
-
-# some system specific exports
-if [ "$(uname)" "==" "Darwin" ]; then
-    # Do something under Mac OS X platform
-# export PATH="/Users/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
-elif [ "$(expr substr $(uname -s) 1 5)" "==" "Linux" ]; then
-    # Do something under GNU/Linux platform
-# export PATH="/home/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
-elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-elif [ "$(expr substr $(uname -s) 1 10)" "==" "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
-fi
 
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
@@ -119,7 +110,8 @@ export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib:/home/sameer/gitr
 export PATH="$STARPU_PATH/bin:$PATH"
 export STARPU_FXT_PREFIX="/home/sameer/gitrepos/hicma"
 export STARPU_FXT_TRACE=1
-export STARPU_GENERATE_TRACE=1
+export STARPU_SCHED=dmda
+export STARPU_CALIBRATE=1
 
 # HiCMA config
 export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu-1.2.8/include/starpu/1.2"
