@@ -26,6 +26,8 @@
                      yard-mode
                      cuda-mode
                      ansi-color
+                     org-journal
+                     pdf-tools
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
