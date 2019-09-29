@@ -1,1 +1,0 @@
-(if (matches (window_name) "gnome-terminal-window-*") (opacity 60) )
