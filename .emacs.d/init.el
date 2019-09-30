@@ -180,6 +180,8 @@
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING" "|" "DONE")))
 (setq org-log-done t)
 (setq org-agenda-files (list
                         "~/Dropbox/memos/2019/october/actions_list.org"
