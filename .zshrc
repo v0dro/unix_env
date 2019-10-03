@@ -45,6 +45,19 @@ pyt_update() {
     python test/run_test.py
 }
 
+pybuild_qs() {
+    git add .
+    git commit -am "QS dev build `date -c`"
+    git push sameer
+    ssh qs -o LocalCommand="bash build_pytorch.sh"
+}
+
+pygetbuild() {
+    
+}
+
+alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 GEN_TO_SOURCE=1 python setup.py develop"
+
 # add rvm to path
 export PATH="$PATH:$HOME/.rvm/bin"
 
