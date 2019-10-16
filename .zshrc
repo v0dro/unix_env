@@ -23,11 +23,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='emacs25'
+   export EDITOR='emacs26'
 else
-   export EDITOR='emacs25'
+   export EDITOR='emacs26'
 fi
-alias emacsclient="emacsclient.emacs25"
+alias emacsclient="emacsclient26"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
