@@ -88,7 +88,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 (setq reftex-plug-into-AUCTeX t) ; Anleitung S.
 (setq reftex-default-bibliography '(
-                                    "/home/sameer/gitrepos/sameer-hpc-asia-2020/sameer_ref.bib"
+                                    "/home/sameer/My Library.bib"
                                     ))
 (add-hook 'TeX-mode-hook
           (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
