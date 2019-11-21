@@ -61,6 +61,9 @@ alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 US
 # add rvm to path
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# add scorep binary
+export PATH="$PATH:/home/sameer/Downloads/scorep-6.0/build/bin"
+
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
 
