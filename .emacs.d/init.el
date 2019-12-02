@@ -185,8 +185,10 @@
       '((sequence "TODO" "DOING" "|" "DONE")))
 (setq org-log-done t)
 (setq org-agenda-files (list
-                        "~/Dropbox/memos/2019/october/actions_list.org"
-                        "~/Dropbox/memos/2019/october/notes.org"
+                        "~/Dropbox/memos/agenda/actions_list.org"
+                        "~/Dropbox/memos/agenda/notes.org"
+                        "~/Dropbox/memos/agenda/waiting_for.org"
+                        "~/Dropbox/memos/agenda/pending-learning-list.org"
                         ))
 (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
