@@ -264,6 +264,10 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 
+;; highlight indents
+(add-to-list 'load-path "~/.emacs.d/highlight-indents/")
+(require 'highlight-indentation)
+
 (add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
