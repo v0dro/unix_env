@@ -268,6 +268,8 @@
 (add-to-list 'load-path "~/.emacs.d/highlight-indents/")
 (require 'highlight-indentation)
 
+(setq make-backup-files nil)
+
 (add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
