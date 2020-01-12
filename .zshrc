@@ -130,8 +130,9 @@ export STARPU_SCHED=dmda
 export STARPU_CALIBRATE=1
 
 # HiCMA config
-export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu-1.2.8/include/starpu/1.2"
-export HICMA_LIB="-L/home/sameer/gitrepos/starpu-1.2.8/lib -lstarpu-1.2 -lstarpumpi-1.2 -lblas -llapacke "
+export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu/include/starpu/1.2"
+export HICMA_LIB="-L/home/sameer/gitrepos/starpu/lib -lstarpu-1.2 -lstarpumpi-1.2 -lblas -llapacke "
+export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu/lib:$LD_LIBRARY_PATH"
 
 # YARN binaries
 #export PATH="$PATH:`yarn global bin`"
