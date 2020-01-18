@@ -149,6 +149,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+export SYSTEM="SAMEER-PC"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

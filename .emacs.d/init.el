@@ -184,12 +184,7 @@
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "|" "DONE")))
 (setq org-log-done t)
-(setq org-agenda-files (list
-                        "~/Dropbox/memos/agenda/actions_list.org"
-                        "~/Dropbox/memos/agenda/notes.org"
-                        "~/Dropbox/memos/agenda/waiting_for.org"
-                        "~/Dropbox/memos/agenda/pending-learning-list.org"
-                        ))
+(setq org-agenda-files '("~/Dropbox/memos/agenda"))
 (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
          ((agenda "")
