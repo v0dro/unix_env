@@ -197,6 +197,7 @@
 
 ;; set default of tramp mode to ssh
 (setq tramp-default-method "ssh")
+(setq tramp-auto-save-directory "/tmp")
 
 ;; doc-view mode default continuos scrolling
 (setq doc-view-continuous 1)
