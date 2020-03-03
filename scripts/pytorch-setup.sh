@@ -20,5 +20,7 @@ pytorch_setup_basic_environment() {
 
 # Setup pytorch with ASAN and clang5. Use the 
 pytorch_setup_with_clang5() {
+    conda activate pytorch-clang5-dev
+    pytorch_setup_basic_environment
     
 }
