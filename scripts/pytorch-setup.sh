@@ -24,3 +24,11 @@ pytorch_setup_with_clang5() {
     pytorch_setup_basic_environment
     
 }
+
+pytorch_setup_cuda() {
+    
+}
+
+pytorch_check_linting() {
+    
+}
