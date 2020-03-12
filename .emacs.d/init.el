@@ -90,6 +90,19 @@
 (setq reftex-default-bibliography '(
                                     "/home/sameer/My Library.bib"
                                     ))
+
+;; org babel code executio
+;; (setenv "PYTHONPATH" "~/anaconda3/bin")
+(setq org-babel-python-command "/home/sameer/anaconda3/bin/python3.6")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (R . t)
+   (ruby . t)
+   (python . t)))
+
+
 (add-hook 'TeX-mode-hook
           (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
