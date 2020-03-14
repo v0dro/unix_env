@@ -17,17 +17,14 @@
                      helm-gtags
                      projectile
                      helm-projectile
-                     company
                      markdown-toc
                      use-package
                      yasnippet
                      page-break-lines
                      dashboard
                      yard-mode
-                     cuda-mode
                      ansi-color
                      org-journal
-                     pdf-tools
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -83,71 +80,20 @@
 (helm-projectile-on)
 (setq projectile-enable-caching t)
 
-;; enable reftex with auctex
-(require 'reftex)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-(setq reftex-plug-into-AUCTeX t) ; Anleitung S.
-(setq reftex-default-bibliography '(
-                                    "/home/sameer/My Library.bib"
-                                    ))
-
-;; org babel code executio
-;; (setenv "PYTHONPATH" "~/anaconda3/bin")
-(setq org-babel-python-command "/home/sameer/anaconda3/bin/python3.6")
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (R . t)
-   (ruby . t)
-   (python . t)))
-
-
-(add-hook 'TeX-mode-hook
-          (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
-
 ;; initialize modes
 (smartparens-global-mode t)             ;smart parens
 (global-linum-mode t)                   ;line numbers on
-
-;; over-ride default mappings to use helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; use space instead of tabs
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq js-indent-level 2)
 
-;; change the binding for C-x o
-(global-set-key (kbd "M-o") 'other-window)
-
 ;; set column mode to true
 (setq column-number-mode t)
 
 ;; global auto-revert-mode
 (global-auto-revert-mode 1)
-
-;; company mode for auto complete
-(add-hook 'after-init-hook 'global-company-mode)
-(global-set-key (kbd "M-/") 'company-complete-common)
-
-;; In Ruby mode, patch the # key to make {} when inside a string
-(defun senny-ruby-interpolate ()
-  "In a double quoted string, interpolate."
-  (interactive)
-  (insert "#")
-  (when (and
-         (looking-back "\".*")
-         (looking-at ".*\""))
-    (insert "{}")
-    (backward-char 1)))
-
-(eval-after-load 'enh-ruby-mode
-  '(progn
-     (define-key enh-ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 
 (put 'erase-buffer 'disabled nil)
 
@@ -182,38 +128,16 @@
                         (projects . 10)
                         (agenda . 5)))
 
-;; YARD mode config
-(require 'yard-mode)
-(add-hook 'ruby-mode-hook 'yard-mode)
-(add-hook 'ruby-mode-hook 'eldoc-mode)
-
-;; rex mode for oedipus_lex files ending in .rex
-(require 'rex-mode)
-
-;; org mode
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-todo-keywords
-      '((sequence "TODO" "DOING" "|" "DONE")))
-(setq org-log-done t)
-(setq org-agenda-files '("~/Dropbox/memos/agenda"))
-(setq org-agenda-custom-commands
-      '(("c" "Simple agenda view"
-         ((agenda "")
-          (alltodo "")))))
-
-;; scala mode enable
-(use-package scala-mode
-  :interpreter
-  ("scala" . scala-mode))
-
 ;; set default of tramp mode to scp
 (setq tramp-default-method "scp")
-(setq tramp-auto-save-directory "/tmp")
+;; turn off TRAMP auto-save
+(defun tramp-handle-find-backup-file-name (filename)
+  "Like `find-backup-file-name' for Tramp files."
+  (with-parsed-tramp-file-name filename nil
+    (tramp-run-real-handler 'find-backup-file-name (list filename))))
 
-;; doc-view mode default continuos scrolling
-(setq doc-view-continuous 1)
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp "/tmp/"))
 
 ;; set option + ¥ key combo to yield a backslash on a mac
 (global-set-key (quote [134217893]) "\\")
@@ -224,54 +148,6 @@
   (let ((buffer-read-only nil))
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer)
-
-;; switch between implementation and header.
-(add-hook 'c-mode-common-hook
-  (lambda() 
-    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
-
-(use-package neotree
-  :ensure t
-  :bind (([f8] . neotree-toggle))
-  :config (setq neo-autorefresh nil))
-
-;; latex 
-(require 'ox-latex)
-
-(setq org-latex-listings t)
-(add-to-list 'org-latex-packages-alist '("" "listings"))
-(add-to-list 'org-latex-packages-alist '("" "color"))
-
-;; pdf-tools configuration
-(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-source-correlate-start-server t
-      )
-;; revert pdf-view after compilation
-(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-(use-package pdf-tools
- :pin manual ;; manually update
- :config
- ;; initialise
- (pdf-tools-install)
- ;; open pdfs scaled to fit page
- (setq-default pdf-view-display-size 'fit-page)
- ;; automatically annotate highlights
- (setq pdf-annot-activate-created-annotations t)
- ;; use normal isearch
- (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
-
-;; robe mode
-(require 'rvm)
-(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
-
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
-
-(put 'erase-buffer 'disabled nil)
-
-;; ruby-block
-(require 'ruby-block)
-(ruby-block-mode t)
 
 ;; highlight indents
 (add-to-list 'load-path "~/.emacs.d/highlight-indents/")

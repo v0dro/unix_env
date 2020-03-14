@@ -1,3 +1,0 @@
-(customize-set-variable 'org-journal-dir "~/Dropbox/memos/journal")
-(customize-set-variable 'org-journal-date-format "%A, %d %B %Y")
-(require 'org-journal)
