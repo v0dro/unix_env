@@ -25,6 +25,7 @@
                      yard-mode
                      ansi-color
                      org-journal
+                     rvm
                      ))
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -36,17 +37,6 @@
   (unless (package-installed-p package)
     (package-install package)))
 ;; ----------------------------------------------------------------
-
-(defun set-window-width (n)
-  "Set the selected window's width."
-  (adjust-window-trailing-edge (selected-window) (- n (window-width)) t))
-
-(defun set-80-columns ()
-  "Set the selected window to 80 columns."
-  (interactive)
-  (set-window-width 80))
-
-(global-set-key (kbd "C-x ~") 'set-80-columns)
 
 ;; load all .el files in the custom/ directory
 ;; (load-file "~/.emacs.d/custom/utils.el")
@@ -127,20 +117,6 @@
 (setq dashboard-items '((recents  . 10)
                         (projects . 10)
                         (agenda . 5)))
-
-;; set default of tramp mode to scp
-(setq tramp-default-method "scp")
-;; turn off TRAMP auto-save
-(defun tramp-handle-find-backup-file-name (filename)
-  "Like `find-backup-file-name' for Tramp files."
-  (with-parsed-tramp-file-name filename nil
-    (tramp-run-real-handler 'find-backup-file-name (list filename))))
-
-(add-to-list 'backup-directory-alist
-             (cons tramp-file-name-regexp "/tmp/"))
-
-;; set option + ¥ key combo to yield a backslash on a mac
-(global-set-key (quote [134217893]) "\\")
 
 ;; ansi color for compilation buffer
 (require 'ansi-color)
