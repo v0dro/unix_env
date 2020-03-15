@@ -80,3 +80,11 @@ pytorch_setup_cuda() {
     print_environment
     pytorch_install
 }
+
+pytorch_setup_cuda() {
+    
+}
+
+pytorch_check_linting() {
+    
+}

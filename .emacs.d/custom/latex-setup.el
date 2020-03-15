@@ -1,4 +1,13 @@
 ;; setup auctex and latex commands and defaults
+
+;; enable reftex with auctex
+(require 'reftex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+(setq reftex-plug-into-AUCTeX t) ; Anleitung S.
+(setq reftex-default-bibliography '(
+                                    "/home/sameer/bib-file.bib"
+                                    ))
+
 (if (not (require `tex-site nil t))
     (message "tex-site not found")
   (require `tex-style)
@@ -19,3 +28,9 @@
   
   ;; default indent level
   (setq LaTeX-indent-level 2))
+
+(require 'ox-latex)
+(setq org-latex-listings t)
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("" "color"))
+
