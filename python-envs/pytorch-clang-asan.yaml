@@ -1,5 +1,5 @@
 # Pytorch dev environment for testing with clang5 on QGPU
-name: pytorch-clang5-dev
+name: pytorch-clang-dev
 channels:
   - conda-forge
   - pytorch
