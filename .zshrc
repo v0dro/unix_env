@@ -120,28 +120,27 @@ export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
 alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
 
 # STARPU/PARSEC configurations
-export STARPU_PATH=/home/sameer/gitrepos/starpu-1.2.8
-export PKG_CONFIG_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib/pkgconfig:/home/sameer/gitrepos/starpu-1.2.8:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
-export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu-1.2.8/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec"
-export PATH="$STARPU_PATH/bin:$PATH"
+export STARPU_DIR=/home/sameer/gitrepos/starpu
+export PKG_CONFIG_PATH="${STARPU_DIR}/lib/pkgconfig:${STARPU_DIR}:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
+export LD_LIBRARY_PATH="${STARPU_DIR}/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec:${LD_LIBRARY_PATH}"
+export PATH="$STARPU_DIR/bin:$PATH"
 export STARPU_FXT_PREFIX="/home/sameer/gitrepos/hicma"
 export STARPU_FXT_TRACE=1
 export STARPU_SCHED=dmda
 export STARPU_CALIBRATE=1
 
 # HiCMA config
-export HICMA_INCLUDE="-I/home/sameer/gitrepos/starpu/include/starpu/1.2"
-export HICMA_LIB="-L/home/sameer/gitrepos/starpu/lib -lstarpu-1.2 -lstarpumpi-1.2 -lblas -llapacke "
-export LD_LIBRARY_PATH="/home/sameer/gitrepos/starpu/lib:$LD_LIBRARY_PATH"
+export HICMA_INCLUDE="-I${STARPU_DIR}/include/starpu/1.2"
+export HICMA_LIB="-L${STARPU_DIR}/lib -lstarpu-1.2 -lstarpumpi-1.2 -lblas -llapacke "
+export LD_LIBRARY_PATH="${STARPU_DIR}/lib:${LD_LIBRARY_PATH}"
 
 # YARN binaries
-#export PATH="$PATH:`yarn global bin`"
-
-# PAPI config
-export LD_LIBRARY_PATH="/home/sameer/gitrepos/papi/lib:$LD_LIBRARY_PATH"
+export PAPI_DIR="/home/sameer/gitrepos/papi/src"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PAPI_DIR}"
+export PATH="${PATH}:${PAPI_DIR}/utils"
 
 # Hlibpro config
-export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
+# export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
 # add conda to PATH
 export PATH="/home/sameer/anaconda3/bin:$PATH"
 
