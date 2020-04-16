@@ -33,6 +33,14 @@ pytorch_update_modules() {
 
 # Prepare environment.
 pytorch_setup_env() {
+    if [ "$WITH_CLANG" -eq "1" ]; then
+        export CC=${CONDA_PREFIX}/bin/clang
+        export CXX=${CONDA_PREFIX}/bin/clang++
+        export OpenMP_C_FLAGS=" -fopenmp=libomp  -Wno-unused-command-line-argument "
+        export OpenMP_C_LIB_NAMES="libomp" "libgomp" "libiomp5"
+        export OpenMP_CXX_FLAGS=" -fopenmp=libomp -Wno-unused-command-line-argument "
+        export OpenMP_CXX_LIB_NAMES="libomp" "libgomp" "libiomp5"
+    fi
     export USE_CUDA=0
     export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
     export CXXFLAGS="`echo $CXXFLAGS | sed 's/-std=c++17/-std=c++14/'`"
@@ -59,31 +67,3 @@ pytorch_setup_basic_environment() {
     pytorch_setup_env
 }
 
-# Setup pytorch with ASAN and clang5. Use the 
-pytorch_setup_clang5() {
-    pytorch_do_pre_setup
-    conda activate pytorch-clang-dev
-    pytorch_setup_env
-    export CC=${CONDA_PREFIX}/bin/clang
-    export CXX=${CONDA_PREFIX}/bin/clang++
-    # pytorch_update_modules
-    # print_environment
-    # pytorch_install
-}
-
-simple_s() {
-    conda activate pytorch-clang-dev
-    python setup.py install
-
-}
-
-# Setup pytorch with Pearu's CUDA environment.
-pytorch_setup_cuda() {
-    pytorch_do_pre_setup
-    conda activate pytorch-cuda-dev
-    export CC=${CONDA_PREFIX}/bin/gcc
-    export CXX=${CONDA_PREFIX}/bin/g++
-    pytorch_update_modules
-    print_environment
-    pytorch_install
-}
