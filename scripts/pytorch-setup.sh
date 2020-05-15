@@ -33,14 +33,19 @@ pytorch_update_modules() {
 
 # Prepare environment.
 pytorch_setup_env() {
-    if [ "$WITH_CLANG" -eq "1" ]; then
+    if [[ "$WITH_CLANG" -eq "1" ]]; then
         export CC=${CONDA_PREFIX}/bin/clang
         export CXX=${CONDA_PREFIX}/bin/clang++
         export OpenMP_C_FLAGS=" -fopenmp=libomp  -Wno-unused-command-line-argument "
         export OpenMP_C_LIB_NAMES="libomp" "libgomp" "libiomp5"
         export OpenMP_CXX_FLAGS=" -fopenmp=libomp -Wno-unused-command-line-argument "
         export OpenMP_CXX_LIB_NAMES="libomp" "libgomp" "libiomp5"
+    else
+        export CC=/usr/bin/gcc
+        export CXX=/usr/bin/g++
     fi
+
+    export DEBUG=1
     export USE_CUDA=0
     export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
     export CXXFLAGS="`echo $CXXFLAGS | sed 's/-std=c++17/-std=c++14/'`"
@@ -59,7 +64,7 @@ pytorch_setup_env() {
 
 pytorch_install() {
     pytorch_setup_env
-    python setup.py install
+    python setup.py develop
 }
 
 pytorch_setup_basic_environment() {
@@ -67,3 +72,4 @@ pytorch_setup_basic_environment() {
     pytorch_setup_env
 }
 
+export -f pytorch_install
