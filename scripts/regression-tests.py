@@ -12,12 +12,12 @@ def clean_project():
     subprocess.Popen(["python", "setup.py", "clean"], cwd=code_dir).wait()
 
 def compile_project():
-    subprocess.call(['bash', '-c', 'pytorch_install'], cwd=code_dir).wait()
+    subprocess.call(['bash', '-c', 'pytorch_install'], cwd=code_dir)
 
 def run_files(branch, files):
     for f in os.listdir("files"):
-        print(f)
-        subprocess.Popen(["ipython", f"{f}", f"{branch}"], cwd=files).wait()
+        if f.endswith(".py"):
+            subprocess.Popen(["ipython", f"{f}", f"{branch}"], cwd=files).wait()
 
 @click.command()
 @click.option("--branch1")
@@ -39,7 +39,7 @@ def run_program(branch1, branch2, code, files):
         switch_branch(branch)
         clean_project()
         compile_project()
-        run_files(files)
+        run_files(branch, files)
         
     
 if __name__ == "__main__":
