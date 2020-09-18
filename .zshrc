@@ -139,6 +139,9 @@ export PAPI_DIR="/home/sameer/gitrepos/papi/src"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PAPI_DIR}"
 export PATH="${PATH}:${PAPI_DIR}/utils"
 
+# google benchmark
+export BENCHMARK="/home/sameer/gitrepos/benchmark"
+
 # Hlibpro config
 # export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
 # add conda to PATH
