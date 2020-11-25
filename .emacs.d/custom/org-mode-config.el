@@ -22,7 +22,8 @@
  '((emacs-lisp . t)
    (R . t)
    (ruby . t)
-   (python . t)))
+   (python . t)
+   (shell . t)))
 (add-hook 'TeX-mode-hook
           (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
