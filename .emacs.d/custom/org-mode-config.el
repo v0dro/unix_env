@@ -16,7 +16,7 @@
 
 ;; org babel code executio
 ;; (setenv "PYTHONPATH" "~/anaconda3/bin")
-(setq org-babel-python-command "/home/sameer/anaconda3/bin/python3.6")
+(setq org-babel-python-command "/home/sameer/anaconda3/bin/python")
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
