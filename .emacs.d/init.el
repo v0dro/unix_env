@@ -68,6 +68,7 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+(setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
 
 ;; initialize modes
@@ -137,6 +138,10 @@
 (setq make-backup-files nil)
 
 (add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
+
+(add-to-list 'tramp-connection-properties
+             (list (regexp-quote "/ssh:abci:")
+                   "remote-shell" "/bin/bash"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
