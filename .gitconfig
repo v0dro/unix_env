@@ -8,3 +8,5 @@
 	required = true
 [cola]
 	spellcheck = false
+[core]
+	editor = nano
