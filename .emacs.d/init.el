@@ -138,6 +138,7 @@
 (setq make-backup-files nil)
 
 (add-to-list 'auto-mode-alist '("\\.jdf\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.ci\\'" . c++-mode))
 
 (add-to-list 'tramp-connection-properties
              (list (regexp-quote "/ssh:abci:")
