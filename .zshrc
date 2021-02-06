@@ -145,7 +145,7 @@ export BENCHMARK="/home/sameer/gitrepos/benchmark"
 # Hlibpro config
 # export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
 # add conda to PATH
-export PATH="/home/sameer/anaconda3/bin:$PATH"
+# export PATH="/home/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
