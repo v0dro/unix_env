@@ -58,6 +58,8 @@ pygetbuild() {
 
 alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 GEN_TO_SOURCE=1 python setup.py develop"
 
+alias subup="git submodule sync --recursive && git submodule update --init --recursive"
+
 # add rvm to path
 export PATH="$PATH:$HOME/.rvm/bin"
 
