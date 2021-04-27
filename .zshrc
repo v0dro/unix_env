@@ -32,10 +32,6 @@ alias emacsclient="emacsclient26"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # helpful functions for pytorch dev
 pyt_update() {
     git pull --rebase
@@ -59,12 +55,6 @@ pygetbuild() {
 alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 GEN_TO_SOURCE=1 python setup.py develop"
 
 alias subup="git submodule sync --recursive && git submodule update --init --recursive"
-
-# add rvm to path
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# add scorep binary
-export PATH="$PATH:/home/sameer/Downloads/scorep-6.0/build/bin"
 
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
@@ -100,10 +90,6 @@ if [ ! -z "$SHOW_HOST_AND_USER_IN_PROMPT" ]; then
   PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
 fi
 
-alias para="cd ~/gitrepos/scratch/c_shizzle/parallel"
-alias rrr="rake clobber && rake compile && rspec"
-alias rrrf="rake clobber && rake compile && rspec --t=focus"
-
 # Copy a folder from this machine to a machine over ssh.
 #
 # Usage: cp_ssh home/folder/name remote_machine_name remote/folder/name
@@ -112,8 +98,6 @@ cp_ssh()
     ssh_user_name=$(ssh -G $2 | grep "user " | cut -c 6-)
     scp -r $1 $ssh_user_name@$2:$3
 }
-export ABCI_HOME="/home/acb10922qh"
-export T3_HOME="/home/1/17M38101"
 
 # add rtags server to PATH
 export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
@@ -131,18 +115,10 @@ export STARPU_FXT_TRACE=1
 export STARPU_SCHED=dmda
 export STARPU_CALIBRATE=1
 
-# HiCMA config
-export HICMA_INCLUDE="-I${STARPU_DIR}/include/starpu/1.2"
-export HICMA_LIB="-L${STARPU_DIR}/lib -lstarpu-1.2 -lstarpumpi-1.2 -lblas -llapacke "
-export LD_LIBRARY_PATH="${STARPU_DIR}/lib:${LD_LIBRARY_PATH}"
-
 # YARN binaries
 export PAPI_DIR="/home/sameer/gitrepos/papi/src"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PAPI_DIR}"
 export PATH="${PATH}:${PAPI_DIR}/utils"
-
-# google benchmark
-export BENCHMARK="/home/sameer/gitrepos/benchmark"
 
 # nodejs
 export PATH="$PATH:/home/sameer/node-v14.16.0-linux-x64/bin"
@@ -156,20 +132,32 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export SYSTEM_NAME="TSUBAME"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
+if [[ "$(uname -n)" == "Sameers-MacBook-Pro.local" ]]; then
+    __conda_setup="$('/Users/sameer/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/home/sameer/anaconda3/bin:$PATH"
+        if [ -f "/Users/sameer/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/Users/sameer/opt/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/Users/sameer/opt/anaconda3/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
+else
+    __conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/sameer/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
 fi
-unset __conda_setup
 # <<< conda initialize <<<
 
