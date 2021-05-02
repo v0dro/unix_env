@@ -131,6 +131,9 @@
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer)
 
+;; delete trailing whitespace on save
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
 ;; highlight indents
 (add-to-list 'load-path "~/.emacs.d/highlight-indents/")
 (require 'highlight-indentation)
