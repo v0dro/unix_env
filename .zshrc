@@ -48,10 +48,6 @@ pybuild_qs() {
     ssh qs -o LocalCommand="bash build_pytorch.sh"
 }
 
-pygetbuild() {
-    
-}
-
 alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 GEN_TO_SOURCE=1 python setup.py develop"
 
 alias subup="git submodule sync --recursive && git submodule update --init --recursive"
@@ -122,6 +118,9 @@ export PATH="${PATH}:${PAPI_DIR}/utils"
 
 # nodejs
 export PATH="$PATH:/home/sameer/node-v14.16.0-linux-x64/bin"
+
+# nvidia driver
+export PATH="$PATH:/usr/local/cuda/bin"
 
 # Hlibpro config
 # export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
