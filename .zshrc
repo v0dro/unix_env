@@ -134,7 +134,7 @@ export LANGUAGE=en_US.UTF-8
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if [[ "$(uname -n)" == "Sameers-MacBook-Pro.local" ]]; then
+if [[ "$(uname -n)" == "sameer-mac.local" ]]; then
     __conda_setup="$('/Users/sameer/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
@@ -161,3 +161,6 @@ else
 fi
 # <<< conda initialize <<<
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
