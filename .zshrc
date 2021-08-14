@@ -50,8 +50,6 @@ pybuild_qs() {
 
 alias pybuild="DEBUG=1 USE_DISTRIBUTED=0 USE_MKLDNN=1 USE_CUDA=0 BUILD_TEST=0 USE_FBGEMM=0 USE_NNPACK=0 USE_QNNPACK=0 GEN_TO_SOURCE=1 python setup.py develop"
 
-alias subup="git submodule sync --recursive && git submodule update --init --recursive"
-
 # show hostname and username in prompt or not. comment this line if no need.
 # export SHOW_HOST_AND_USER_IN_PROMPT=1
 
@@ -105,11 +103,6 @@ alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
 export STARPU_DIR=/home/sameer/gitrepos/starpu
 export PKG_CONFIG_PATH="${STARPU_DIR}/lib/pkgconfig:${STARPU_DIR}:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
 export LD_LIBRARY_PATH="${STARPU_DIR}/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec:${LD_LIBRARY_PATH}"
-export PATH="$STARPU_DIR/bin:$PATH"
-export STARPU_FXT_PREFIX="/home/sameer/gitrepos/hicma"
-export STARPU_FXT_TRACE=1
-export STARPU_SCHED=dmda
-export STARPU_CALIBRATE=1
 
 # YARN binaries
 export PAPI_DIR="/home/sameer/gitrepos/papi/src"
@@ -122,10 +115,6 @@ export PATH="$PATH:/home/sameer/node-v14.16.0-linux-x64/bin"
 # nvidia driver
 export PATH="$PATH:/usr/local/cuda/bin"
 
-# Hlibpro config
-# export LD_LIBRARY_PATH="/home/sameer/Downloads/hlibpro-2.7.2/aux/lib:/usr/lib/x86_64-linux-gnu:/home/sameer/Downloads/hlibpro-2.7.2/lib:$LD_LIBRARY_PATH"
-# add conda to PATH
-# export PATH="/home/sameer/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
