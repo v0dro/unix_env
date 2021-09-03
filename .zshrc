@@ -120,6 +120,13 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+# googletest
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/googletest/build/lib/pkgconfig"
+
+# blas
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/pkgconfig"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if [[ "$(uname -n)" == "sameer-mac.local" ]]; then
