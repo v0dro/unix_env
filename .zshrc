@@ -96,25 +96,13 @@ cp_ssh()
 # add rtags server to PATH
 export PATH="$PATH:$HOME/.emacs.d/elpa/rtags-2.21/rtags-2.21/bin/"
 
-# Intel trace analyser
-alias itrace="/home/sameer/intel/itac/2019.1.022/bin/traceanalyzer"
-
-# STARPU/PARSEC configurations
-export STARPU_DIR=/home/sameer/gitrepos/starpu
-export PKG_CONFIG_PATH="${STARPU_DIR}/lib/pkgconfig:${STARPU_DIR}:/home/sameer/gitrepos/parsec/build/parsec/include:/home/sameer/gitrepos/openmpi/lib/pkgconfig"
-export LD_LIBRARY_PATH="${STARPU_DIR}/lib:/home/sameer/gitrepos/openmpi/lib:/home/sameer/gitrepos/parsec/build/parsec:${LD_LIBRARY_PATH}"
-
 # YARN binaries
 export PAPI_DIR="/home/sameer/gitrepos/papi/src"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PAPI_DIR}"
 export PATH="${PATH}:${PAPI_DIR}/utils"
 
-# nodejs
-export PATH="$PATH:/home/sameer/node-v14.16.0-linux-x64/bin"
-
 # nvidia driver
 export PATH="$PATH:/usr/local/cuda/bin"
-
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -127,35 +115,26 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/googletest/build/lib/pkg
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/pkgconfig"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/"
 
+# Apple veclib
+export VEC_LIB_INCLUDE=/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if [[ "$(uname -n)" == "sameer-mac.local" ]]; then
-    __conda_setup="$('/Users/sameer/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/Users/sameer/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/Users/sameer/opt/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/Users/sameer/opt/anaconda3/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
 else
-    __conda_setup="$('/home/sameer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        if [ -f "/home/sameer/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/home/sameer/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/home/sameer/anaconda3/bin:$PATH"
-        fi
+        export PATH="/opt/anaconda3/bin:$PATH"
     fi
-    unset __conda_setup
 fi
+unset __conda_setup
 # <<< conda initialize <<<
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
