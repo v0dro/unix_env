@@ -147,6 +147,7 @@
              (list (regexp-quote "/ssh:abci:")
                    "remote-shell" "/bin/bash"))
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -155,8 +156,7 @@
  '(org-journal-date-format "%A, %d %B %Y")
  '(org-journal-dir "~/Dropbox/memos/journal")
  '(package-selected-packages
-   (quote
-    (cmake-project julia-mode find-file-in-project ebib dockerfile-mode flycheck-julia polymode ein jedi cmake-mode yasnippet-snippets yard-mode yaml-mode xcscope web-mode vue-mode use-package sx smartparens scala-mode rtags robe pomidor pdf-tools org-journal neotree multi-term moz-controller markdown-toc magit helm-projectile helm-gtags helm-bibtex enh-ruby-mode emmet-mode elpy dracula-theme dashboard cuda-mode better-defaults auto-complete auctex aggressive-indent))))
+   '(olivetti cmake-project julia-mode find-file-in-project ebib dockerfile-mode flycheck-julia polymode ein jedi cmake-mode yasnippet-snippets yard-mode yaml-mode xcscope web-mode vue-mode use-package sx smartparens scala-mode rtags robe pomidor pdf-tools org-journal neotree multi-term moz-controller markdown-toc magit helm-projectile helm-gtags helm-bibtex enh-ruby-mode emmet-mode elpy dracula-theme dashboard cuda-mode better-defaults auto-complete auctex aggressive-indent)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
