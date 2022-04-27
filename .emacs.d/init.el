@@ -147,6 +147,10 @@
              (list (regexp-quote "/ssh:abci:")
                    "remote-shell" "/bin/bash"))
 
+(setq x-select-enable-primary nil)
+
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
