@@ -27,3 +27,12 @@
 (add-hook 'TeX-mode-hook
           (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
 
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+;; Resume clocking tasks when emacs is restarted
+(org-clock-persistence-insinuate)
+;; Do not prompt to resume an active clock
+(setq org-clock-persist-query-resume nil)
+;; Save the running clock and all clock history when exiting Emacs, load it on  startup
+(setq org-clock-persist t)
