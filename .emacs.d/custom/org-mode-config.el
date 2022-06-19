@@ -36,3 +36,5 @@
 (setq org-clock-persist-query-resume nil)
 ;; Save the running clock and all clock history when exiting Emacs, load it on  startup
 (setq org-clock-persist t)
+;; report time only in hours
+(setq org-duration-format (quote h:mm))
