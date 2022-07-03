@@ -116,7 +116,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/p
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/"
 
 # Apple veclib
-export VEC_LIB_INCLUDE=/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
+export VEC_LIB_INCLUDE=/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
