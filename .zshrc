@@ -138,3 +138,5 @@ unset __conda_setup
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+
+source ~/.cargo/env
