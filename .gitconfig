@@ -9,6 +9,6 @@
 [cola]
 	spellcheck = false
 [core]
-	editor = nano
+	editor = vi
 [pull]
 	rebase = false
