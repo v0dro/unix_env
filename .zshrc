@@ -3,7 +3,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+alias srv="ssh sameerd@vm-srv11-rhel-8-05.il.nextsilicon.com"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -16,6 +16,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# For compilers to find lapack you may need to set:
+#   export LDFLAGS="-L/opt/homebrew/opt/lapack/lib"
+#   export CPPFLAGS="-I/opt/homebrew/opt/lapack/include"
+
+# For pkg-config to find lapack you may need to set:
+#   export PKG_CONFIG_PATH="/opt/homebrew/opt/lapack/lib/pkgconfig"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -116,7 +122,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/p
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/"
 
 # Apple veclib
-export VEC_LIB_INCLUDE=/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
+export VEC_LIB_INCLUDE=/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

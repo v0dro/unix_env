@@ -154,6 +154,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   '("~/gitrepos/research-memos/meetings/2023/january/22/experiment-notebook.org" "/Users/sameer/Dropbox/memos/agenda/actions_list.org" "/Users/sameer/Dropbox/memos/agenda/inbox.org" "/Users/sameer/Dropbox/memos/agenda/mental-models.org" "/Users/sameer/Dropbox/memos/agenda/notes.org" "/Users/sameer/Dropbox/memos/agenda/pending-learning-list.org" "/Users/sameer/Dropbox/memos/agenda/questions.org" "/Users/sameer/Dropbox/memos/agenda/reading.org" "/Users/sameer/Dropbox/memos/agenda/research.org"))
  '(org-journal-date-format "%A, %d %B %Y")
  '(org-journal-dir "~/Dropbox/memos/journal")
  '(package-selected-packages
