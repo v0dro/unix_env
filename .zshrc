@@ -122,7 +122,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/p
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gitrepos/lapack-3.9.1/build/lib/"
 
 # Apple veclib
-export VEC_LIB_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
+export VEC_LIB_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -141,7 +141,7 @@ unset __conda_setup
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/Users/sameer/.rubies/ruby-3.2.2/bin:$PATH"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 

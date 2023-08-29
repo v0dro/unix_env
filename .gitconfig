@@ -12,3 +12,5 @@
 	editor = vi
 [pull]
 	rebase = false
+[credential]
+	helper = store
