@@ -6,7 +6,7 @@
         ("melpa-stable" . "https://stable.melpa.org/packages/")
 	("elpa" . "http://tromey.com/elpa/")))
 
-(package-refresh-contents)
+;;(package-refresh-contents)
 ;; ----------------------------------------------------------------
 ;; install packages without user intervention
 (setq package-list '(better-defaults
