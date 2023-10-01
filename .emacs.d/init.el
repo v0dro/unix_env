@@ -61,7 +61,6 @@
 (use-package markdown-mode)
 (use-package smartparens-config)
 
-(require 'helm-config)
 (helm-mode 1)
 
 (require 'helm-projectile)
@@ -75,7 +74,7 @@
 
 ;; initialize modes
 (smartparens-global-mode t)             ;smart parens
-(global-linum-mode t)                   ;line numbers on
+(global-display-line-numbers-mode t)                   ;line numbers on
 
 ;; use space instead of tabs
 (setq tab-width 2)
