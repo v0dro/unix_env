@@ -125,6 +125,9 @@
                         (projects . 10)
                         (agenda . 5)))
 
+(setq load-path (cons (expand-file-name "~/.emacs.d/cmake-mode-20231006.1308") load-path))
+(require 'cmake-mode)
+
 ;; ansi color for compilation buffer
 (require 'ansi-color)
 (defun my/ansi-colorize-buffer ()
