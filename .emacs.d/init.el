@@ -42,7 +42,6 @@
 
 ;; load all .el files in the custom/ directory
 ;; (load-file "~/.emacs.d/custom/utils.el")
-(load-file "~/.emacs.d/custom/mozc.el")
 (defun load-directory (dir)
   (let ((load-it (lambda (f)
                    (load-file (concat (file-name-as-directory dir) f)))
@@ -152,21 +151,3 @@
                    "remote-shell" "/bin/bash"))
 
 (setq x-select-enable-primary nil)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   '("~/gitrepos/research-memos/meetings/2023/january/22/experiment-notebook.org" "/Users/sameer/Dropbox/memos/agenda/actions_list.org" "/Users/sameer/Dropbox/memos/agenda/inbox.org" "/Users/sameer/Dropbox/memos/agenda/mental-models.org" "/Users/sameer/Dropbox/memos/agenda/notes.org" "/Users/sameer/Dropbox/memos/agenda/pending-learning-list.org" "/Users/sameer/Dropbox/memos/agenda/questions.org" "/Users/sameer/Dropbox/memos/agenda/reading.org" "/Users/sameer/Dropbox/memos/agenda/research.org"))
- '(org-journal-date-format "%A, %d %B %Y")
- '(org-journal-dir "~/Dropbox/memos/journal")
- '(package-selected-packages
-   '(rust-mode olivetti cmake-project julia-mode find-file-in-project ebib dockerfile-mode flycheck-julia polymode ein jedi cmake-mode yasnippet-snippets yard-mode yaml-mode xcscope web-mode vue-mode use-package sx smartparens scala-mode rtags robe pomidor pdf-tools org-journal neotree multi-term moz-controller markdown-toc magit helm-projectile helm-gtags helm-bibtex enh-ruby-mode emmet-mode elpy dracula-theme dashboard cuda-mode better-defaults auto-complete auctex aggressive-indent)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
